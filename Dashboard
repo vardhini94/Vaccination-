@@ -1,0 +1,41 @@
+<!-- dashboard.component.html -->
+<mat-toolbar color="primary">
+  <span>Vaccination Dashboard</span>
+</mat-toolbar>
+
+<div class="dashboard-container">
+  <mat-card class="stat-card">
+    <mat-card-title>Total Vaccinations</mat-card-title>
+    <mat-card-content>
+      <h2>{{ totalVaccinations | number }}</h2>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="stat-card">
+    <mat-card-title>Fully Vaccinated</mat-card-title>
+    <mat-card-content>
+      <h2>{{ fullyVaccinated | number }}</h2>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="stat-card">
+    <mat-card-title>Vaccination Rate</mat-card-title>
+    <mat-card-content>
+      <h2>{{ vaccinationRate }}%</h2>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="chart-card">
+    <mat-card-title>Vaccinations Over Time</mat-card-title>
+    <mat-card-content>
+      <canvas baseChart
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType">
+      </canvas>
+    </mat-card-content>
+  </mat-card>
+</div>
